@@ -8,7 +8,7 @@ export default function Home() {
           <nav className="flex gap-6 text-sm text-gray-700">
             <a href="#courses">강의</a>
             <a href="#about">소개</a>
-            <a href="#login">로그인</a>
+            <a href="/login">로그인</a>
           </nav>
         </div>
       </header>
@@ -21,9 +21,12 @@ export default function Home() {
         <p className="text-lg text-gray-600 mb-8">
           부동산 경매부터 경제 흐름까지, 전문가 강의로 자산을 키우는 방법을 배워보세요.
         </p>
-        <button className="bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold">
+        <a
+          href="#courses"
+          className="inline-block bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold"
+        >
           강의 둘러보기
-        </button>
+        </a>
       </section>
 
       {/* 강의 목록 (샘플) */}
@@ -35,13 +38,17 @@ export default function Home() {
             { title: "경제 지표 읽는 법", price: "120,000원" },
             { title: "실전 자산 포트폴리오", price: "200,000원" },
           ].map((course) => (
-            <div key={course.title} className="border border-gray-200 rounded-lg p-6">
+            <a
+              key={course.title}
+              href="/course"
+              className="border border-gray-200 rounded-lg p-6 block hover:shadow-md transition"
+            >
               <div className="w-full h-40 bg-gray-100 rounded-md mb-4 flex items-center justify-center text-gray-400">
                 영상 썸네일
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">{course.title}</h3>
               <p className="text-blue-700 font-bold">{course.price}</p>
-            </div>
+            </a>
           ))}
         </div>
       </section>
